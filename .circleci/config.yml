@@ -7,8 +7,6 @@ jobs:
      steps:
        # checkout git repo and theme submodules
        - checkout
-       - run: git submodule sync
-       - run: git submodule update --init
        - run:
             name: Build static files
             command: hugo
