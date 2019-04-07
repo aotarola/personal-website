@@ -4,9 +4,13 @@ LABEL maintainer="Andres Otarola <andres@otarola.me>"
 ENV HUGO_VERSION 0.54.0
 ENV HUGO_BINARY hugo_${HUGO_VERSION}_linux-64bit
 
+# Install node 8.x
 RUN apk add  --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/v3.7/main/ nodejs=8.9.3-r1
 
-# install firebase cli
+# Install git
+RUN apk add --no-cache git
+
+# Install firebase cli
 RUN npm install -g firebase-tools
 
 # Install pygments (for syntax highlighting) and bash
