@@ -13,9 +13,6 @@ RUN apk add --no-cache git
 # Install firebase cli
 RUN npm install -g firebase-tools
 
-# Install pygments (for syntax highlighting) and bash
-RUN apk update && apk add py-pygments && apk add bash && rm -rf /var/cache/apk/*
-
 # Download and Install hugo
 RUN mkdir /usr/local/hugo
 ADD https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${HUGO_BINARY}.tar.gz /usr/local/hugo/
