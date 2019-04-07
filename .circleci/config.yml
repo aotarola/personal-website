@@ -1,46 +1,18 @@
 version: 2
 jobs:
-  build:
-    working_directory: ~/89tech
-    machine: true
-    steps:
-      - checkout
-      - run:
-          name: install hugo
-          command: go get -v github.com/gohugoio/hugo
-      - run:
-          name: run hugo
-          command: hugo
-      - run:
-          name: Print the Current Time
-          command: date
-      - save_cache:
-          key: buildend-{{ epoch }}
-          paths:
-            - ~/89tech
+   build:
+     docker:
+       # use custom image with hugo & firebase-tools pre-installed.
+       - image: aotarola/personal-website:2019-04-06
+     steps:
+       # checkout git repo and theme submodules
+       - checkout
+       - run: git submodule sync
+       - run: git submodule update --init
+       - run:
+            name: Build static files
+            command: hugo
+       - run:
+            name: Deploy to firebase
+            command: firebase --project "$FIREBASE_PROJECTID" deploy --token "$FIREBASE_TOKEN"
 
-  deploy:
-    working_directory: ~/89tech
-    machine: true
-    steps:
-      - restore_cache:
-          keys:
-            - buildend
-      - run:
-          name: install firebase
-          command: npm install -g firebase-tools
-      - run:
-          name: firebase deploy
-          command: firebase --project "$FIREBASE_PROJECTID" deploy --token "$FIREBASE_TOKEN"
-
-workflows:
-  version: 2
-  build_and_deploy:
-    jobs:
-      - build
-      - deploy:
-          requires:
-            - build
-          filters:
-            branches:
-              only: master
