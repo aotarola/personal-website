@@ -1,5 +1,5 @@
 baseurl = "https://example.com/"
-title = "Andres Otarola"
+title = "Andres Otarola - Software Engineer"
 theme = "pulp"
 canonifyurls = true
 hasCJKLanguage = true
