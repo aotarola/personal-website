@@ -1,16 +1,19 @@
 version: 2
 jobs:
-   build:
-     docker:
-       # use custom image with hugo & firebase-tools pre-installed.
-       - image: aotarola/personal-website:2019-04-06
-     steps:
-       # checkout git repo and theme submodules
-       - checkout
-       - run:
+  build:
+    docker:
+      # use custom image with hugo & firebase-tools pre-installed.
+      - image: aotarola/personal-website:2019-04-06
+    steps:
+      # checkout git repo and theme submodules
+      - checkout
+      - run:
             name: Build static files
             command: hugo
-       - run:
+      - run:
+            name: fix origin name
+            command: hugo -b https://otarola.me
+      - run:
             name: Deploy to firebase
             command: firebase --project "$FIREBASE_PROJECTID" deploy --token "$FIREBASE_TOKEN"
 
