@@ -1,6 +1,6 @@
 # Personal Website
 
-[![CircleCI](https://circleci.com/gh/aotarola/personal-website/tree/master.svg?style=svg)](https://circleci.com/gh/aotarola/personal-website/tree/master)
+[![CircleCI](https://circleci.com/gh/aotarola/personal-website/tree/master.svg?style=shield)](https://circleci.com/gh/aotarola/personal-website/tree/master)
 
 Just my personal Website
 
