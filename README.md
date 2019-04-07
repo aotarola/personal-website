@@ -35,6 +35,13 @@ firebase login
  firebase use --add
 ```
 
+
+## Local Development
+
+```zsh
+hugo server -D
+```
+
 ## Deployment
 - Just regular firebase hosting deploy
 ```zsh
