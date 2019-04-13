@@ -28,11 +28,11 @@ hasCJKLanguage = true
 [outputs]
     section = ["JSON", "HTML"]
 
-#[[menu.main]]
-#    name = "Blog"
-#    pre = "<i class='fa fa-book-open fa-lg'></i>" #Choose your favorite font from Font Awesome
-#    url = "/blog/"
-#    weight = 10
+[[menu.main]]
+   name = "Resume"
+   pre = "<i class='fa fa-book-open fa-lg'></i>" #Choose your favorite font from Font Awesome
+   url = "/resume.pdf"
+   weight = 10
 
 [[menu.main]]
     name = "Twitter"
